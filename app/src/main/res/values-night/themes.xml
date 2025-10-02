@@ -1,0 +1,9 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.BancoLi" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- INICIO DE LA CORRECCIÓN -->
+        <item name="colorPrimary">@color/green_200</item> <!-- Tono más claro para modo noche -->
+        <item name="colorPrimaryVariant">@color/green_700</item>
+        <!-- FIN DE LA CORRECCIÓN -->
+    </style>
+</resources>

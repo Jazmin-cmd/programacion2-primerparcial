@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_clientes"
+        android:icon="@drawable/ic_cliente_24"
+        android:title="@string/title_clientes" />
+
+    <item
+        android:id="@+id/navigation_beneficiarios"
+        android:icon="@drawable/ic_beneficiario_24"
+        android:title="@string/title_beneficiarios" />
+
+</menu>

@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">BancoLi</string>
+    <string name="add_cliente">Añadir Cliente</string>
+    <string name="add_cuenta">Añadir Cuenta</string>
+    <string name="title_clientes">Clientes</string>
+    <string name="title_beneficiarios">Beneficiarios</string>
+    <string name="add_beneficiario">Añadir Beneficiario</string>
+</resources>

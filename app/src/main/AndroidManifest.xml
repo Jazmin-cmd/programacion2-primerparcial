@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/logo_app"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/logo_app_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.BancoLi">
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".ClienteActivity"
+            android:label="Gestión de Clientes" />
+
+        <activity
+            android:name=".AddEditClienteActivity"
+            android:label="Añadir/Editar Cliente"
+            android:parentActivityName=".ClienteActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ClienteActivity" />
+        </activity>
+
+        <activity
+            android:name=".CuentaActivity"
+            android:label="Cuentas del Cliente"
+            android:parentActivityName=".ClienteActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ClienteActivity" />
+        </activity>
+
+        <activity
+            android:name=".AddEditCuentaActivity"
+            android:label="Añadir/Editar Cuenta"
+            android:parentActivityName=".CuentaActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".CuentaActivity" />
+        </activity>
+
+        <activity
+            android:name=".AddEditBeneficiarioActivity"
+            android:label="Añadir/Editar Beneficiario"
+            android:parentActivityName=".MainActivity" />
+
+        <!-- INICIO DE LA CORRECCIÓN -->
+        <activity
+            android:name=".TransaccionActivity"
+            android:label="Transacciones"
+            android:parentActivityName=".CuentaActivity" />
+
+        <activity
+            android:name=".AddEditTransaccionActivity"
+            android:label="Añadir/Editar Transacción"
+            android:parentActivityName=".TransaccionActivity" />
+        <!-- FIN DE LA CORRECCIÓN -->
+
+    </application>
+
+</manifest>

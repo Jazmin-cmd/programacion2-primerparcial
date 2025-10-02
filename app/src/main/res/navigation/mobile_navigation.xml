@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_clientes">
+
+    <fragment
+        android:id="@+id/navigation_clientes"
+        android:name="com.example.bancoli.ui.cliente.ClienteFragment"
+        android:label="@string/title_clientes"
+        tools:layout="@layout/fragment_cliente" />
+
+    <!-- INICIO DE LA CORRECCIÓN -->
+    <fragment
+        android:id="@+id/navigation_beneficiarios"
+        android:name="com.example.bancoli.ui.beneficiario.BeneficiarioFragment"
+        android:label="@string/title_beneficiarios"
+        tools:layout="@layout/fragment_beneficiario" />
+    <!-- FIN DE LA CORRECCIÓN -->
+
+</navigation>

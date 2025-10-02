@@ -1,0 +1,15 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.BancoLi" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- INICIO DE LA CORRECCIÓN -->
+        <item name="colorPrimary">@color/green_500</item>
+        <item name="colorPrimaryVariant">@color/green_700</item>
+        <!-- FIN DE LA CORRECCIÓN -->
+    </style>
+
+    <style name="Theme.BancoLi" parent="Base.Theme.BancoLi" />
+
+    <!-- Estilos para AppBarLayout y Toolbar -->
+    <style name="Theme.BancoLi.AppBarOverlay" parent="ThemeOverlay.Material3.Dark.ActionBar" />
+    <style name="Theme.BancoLi.PopupOverlay" parent="ThemeOverlay.Material3.Light" />
+</resources>
