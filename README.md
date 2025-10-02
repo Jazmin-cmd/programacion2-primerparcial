@@ -1,19 +1,25 @@
-# 🏦 BancoApp - Simulación Bancaria  
+# 🏦 BancoLi - Simulación Bancaria  
 
 🎓 **Proyecto académico:** Desarrollo de aplicación móvil en **Java con Android Studio**  
-💻 **Objetivo:** Gestionar clientes, cuentas y transacciones de manera segura y coherente  
-🚀 **Características principales:** CRUD completo, integridad referencial con llaves foráneas y escalabilidad en la base de datos  
+💻 **Objetivo:** Gestionar clientes, cuentas, transacciones y beneficiarios de manera segura y coherente  
+🚀 **Características principales:** CRUD completo, integridad referencial con llaves foráneas, escalabilidad en la base de datos y manejo de las operaciones más básicas de un banco  
 
 ---
 
 ## 📝 Descripción del proyecto  
 
-**BancoApp** es una aplicación que simula el funcionamiento de un banco real.  
+**BancoLi** es una aplicación que simula el funcionamiento básico de un banco real.  
 El diseño de la base de datos refleja de manera fiel la lógica del mundo real, manteniendo la integridad y consistencia de los datos.  
 
+🔹 Actualmente, la aplicación **maneja las operaciones más esenciales de un sistema bancario**, como:  
+- Registro y administración de **clientes**.  
+- Creación y gestión de **cuentas**.  
+- Registro de **transacciones** (depósitos, retiros, transferencias).  
+- Asociación de **beneficiarios** a las cuentas, para transferencias y gestión de autorizados.  
+
 - Al **crear un cliente**, este puede tener **una o varias cuentas**.  
-- Cada **cuenta** puede registrar múltiples **transacciones**.  
-- Gracias a la **regla ON DELETE CASCADE**, si un cliente es eliminado, también lo son sus cuentas y transacciones asociadas, evitando inconsistencias.  
+- Cada **cuenta** puede registrar múltiples **transacciones** y beneficiarios asociados.  
+- Gracias a la **regla ON DELETE CASCADE**, si un cliente es eliminado, también lo son sus cuentas, transacciones y beneficiarios relacionados, evitando inconsistencias.  
 
 ### 🔹 Beneficios del diseño  
 
@@ -21,16 +27,17 @@ El diseño de la base de datos refleja de manera fiel la lógica del mundo real,
    Las entidades no existen en el vacío, sino interconectadas de forma jerárquica.  
 
 2. **Integridad referencial:**  
-   No puede existir una transacción sin cuenta, ni una cuenta sin cliente.  
+   No puede existir una transacción ni un beneficiario sin cuenta, ni una cuenta sin cliente.  
 
 3. **Consultas eficientes:**  
    - Obtener todas las cuentas de un cliente filtrando por `fkClienteId`.  
    - Obtener todas las transacciones de una cuenta filtrando por `fkCuentaId`.  
+   - Obtener todos los beneficiarios de una cuenta filtrando por `fkCuentaId`.  
 
 4. **Escalabilidad:**  
    El sistema puede crecer fácilmente. Por ejemplo, agregar **Préstamos** o **Tarjetas de Crédito** solo requeriría nuevas tablas relacionadas con **Cliente**.  
 
-> En resumen, **BancoApp no es solo un CRUD**, sino un sistema coherente y escalable, donde la lógica de la base de datos guía la lógica de negocio y la interfaz de usuario acompaña al flujo de manera intuitiva.  
+> En resumen, **BancoLi maneja lo básico de un banco**, pero está estructurado de forma que puede escalar hacia un sistema más robusto en el futuro.  
 
 ---
 
@@ -47,10 +54,10 @@ El diseño de la base de datos refleja de manera fiel la lógica del mundo real,
 
 ## 🧪 Datos de prueba  
 
-Cliente | Cuenta | Transacciones
---------|--------|--------------
-Juan Pérez | Cuenta Ahorro | Depósito $1000, Retiro $200  
-Ana López | Cuenta Corriente | Depósito $5000, Transferencia $1200  
+Cliente | Cuenta | Transacciones | Beneficiarios
+--------|--------|---------------|--------------
+Juan Pérez | Cuenta Ahorro | Depósito $1000, Retiro $200 | María Pérez  
+Ana López | Cuenta Corriente | Depósito $5000, Transferencia $1200 | Pedro López  
 
 ---
 
@@ -60,6 +67,7 @@ Ana López | Cuenta Corriente | Depósito $5000, Transferencia $1200
 erDiagram
     CLIENTE ||--o{ CUENTA : tiene
     CUENTA ||--o{ TRANSACCION : registra
+    CUENTA ||--o{ BENEFICIARIO : autoriza
 
     CLIENTE {
         int idCliente PK
@@ -80,4 +88,11 @@ erDiagram
         string tipo
         float monto
         date fecha
+    }
+
+    BENEFICIARIO {
+        int idBeneficiario PK
+        int fkCuentaId FK
+        string nombre
+        string relacion
     }
